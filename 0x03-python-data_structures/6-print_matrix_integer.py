@@ -10,5 +10,3 @@ def print_matrix_integer(matrix=[[]]):
             print(row[-1])
         else:
             print()
-    else:
-        return
