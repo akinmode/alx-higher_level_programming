@@ -1,0 +1,52 @@
+Test cases for 5-text_indentation module
+========================================
+
+The 5-text_indentation module separates sentences after characters: ., ? and :
+
+Usage
+=====
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+>>> text_indentation("Hello")
+Hello
+
+>>> text_indentation("Hello.")
+Hello.
+<BLANKLINE>
+
+>>> text_indentation("Hello?")
+Hello?
+<BLANKLINE>
+
+>>> text_indentation("Hello:")
+Hello:
+<BLANKLINE>
+
+>>> text_indentation("   Hello.   ")
+Hello.
+<BLANKLINE>
+
+>>> text_indentation(" Hello? ")
+Hello?
+<BLANKLINE>
+
+>>> text_indentation("  Hello:  ")
+Hello:
+<BLANKLINE>
+
+>>> text_indentation(" Hi: Hello?    Akin. ")
+Hi:
+<BLANKLINE>
+Hello?
+<BLANKLINE>
+Akin.
+<BLANKLINE>
+
+>>> text_indentation("Hi:Hello?Akin.")
+Hi:
+<BLANKLINE>
+Hello?
+<BLANKLINE>
+Akin.
+<BLANKLINE>
