@@ -1,0 +1,64 @@
+Test cases for 7-base_geometry: integer validator
+=================================================
+
+Usage
+=====
+>>> BaseG = __import__("7-base_geometry").BaseGeometry
+>>> a = BaseG()
+>>> isvalid = a.integer_validator
+
+>>> isvalid("my_int", 12)
+
+>>> isvalid("width", 89)
+
+>>> isvalid("", 12)
+
+>>> a.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+>>> isvalid()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> isvalid(50)
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> isvalid("", 12)
+
+>>> isvalid("name", "string")
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", None)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", {3, 1})
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", ())
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", [])
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", True)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("name", 3.5)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> isvalid("x", -4)
+Traceback (most recent call last):
+ValueError: x must be greater than 0
+
+>>> isvalid("x", 0)
+Traceback (most recent call last):
+ValueError: x must be greater than 0
