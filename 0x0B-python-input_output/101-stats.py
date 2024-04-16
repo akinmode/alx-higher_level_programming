@@ -26,18 +26,18 @@ def StatInputs():
     line_count = 0
     stat_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
                  '403': 0, '404': 0, '405': 0, '500': 0}
+
     try:
         for inline in sys.stdin:
             line_count += 1
             parts = inline.split()
-
             total_size += int(parts[8])
             stat_dict[parts[7]] += 1
             if line_count % 10 == 0:
                 printStats(total_size, stat_dict)
-
     except KeyboardInterrupt:
         printStats(total_size, stat_dict)
+        raise
 
 
 if __name__ == "__main__":
