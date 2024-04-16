@@ -4,6 +4,7 @@
 """
 import sys
 
+
 def printStats(t_size, s_dict):
     """
         Outputs the formatted result
@@ -13,15 +14,18 @@ def printStats(t_size, s_dict):
         if stat_pop > 0:
             print(f"{stat_code}: {stat_pop}")
 
+
 def StatInputs():
     """
         Receives line by line input from a file or stdout
         format:
-        <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+        <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
+        <status code> <file size>
     """
     total_size = 0
     line_count = 0
-    stat_dict = { '200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
+    stat_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
+                 '403': 0, '404': 0, '405': 0, '500': 0}
     try:
         for inline in sys.stdin:
             line_count += 1
@@ -34,7 +38,7 @@ def StatInputs():
 
     except KeyboardInterrupt:
         printStats(total_size, stat_dict)
-    
+
 
 if __name__ == "__main__":
     StatInputs()
